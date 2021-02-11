@@ -1,0 +1,39 @@
+.cc-sort-modal {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    border: 1px solid #bbbbbb;
+    border-radius: 0.5em;
+
+    p {
+        margin: 0;
+        padding: 1em;
+
+        img {
+            max-width: 15px;
+        }
+    }
+
+    .cc-sort-modal-list {       
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        padding-right: 0.5em;
+        position: absolute;
+        top: 40px;  
+        width: 189px;
+        height: auto;
+        z-index: 10;
+        background-color: white;
+        border: 1px solid #bbb;
+
+        li {
+            list-style-type: none;
+            padding: 0.2em;
+        }
+    }
+}
+

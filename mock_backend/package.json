@@ -1,0 +1,14 @@
+{
+  "name": "mock-backend",
+  "version": "1.0.0",
+  "description": "The purpose of this application is to mimic a backend",
+  "scripts": {
+    "mock": "json-server --watch index.js",
+    "mock-docker": "json-server -H 0.0.0.0 mock_data/database.json"
+  },
+  "author": "CodeCool",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.16.1"
+  }
+}

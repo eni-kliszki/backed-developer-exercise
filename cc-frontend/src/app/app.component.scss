@@ -1,0 +1,26 @@
+main {
+    width: 96vw;
+    height: 96vh;
+    padding: 2vh 2vw 2vh 2vw;
+
+    .cc-grid-header {
+        text-align: right;
+        padding: 2em;
+
+        sort-modal {
+            display: inline-block;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            height: 2em;            
+            cursor: pointer;
+        }
+    }
+
+    .cc-card-container {    
+        display: grid;    
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        gap: 1em;
+    }
+}

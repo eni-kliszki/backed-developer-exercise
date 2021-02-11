@@ -1,0 +1,10 @@
+<div class="cc-sort-modal"(click)="openModal()">
+    <p>Sort by {{ modalState.selected.caption }} <img src="../../assets/slider.png" alt=""></p>
+    <div class="cc-sort-modal-list" *ngIf="modalState.open">
+        <ul>
+            <li *ngFor="let method of sortMethods" (click)="onSelectMethod(method)">
+                {{method.caption}}
+            </li>
+        </ul>
+    </div>
+</div>

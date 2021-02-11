@@ -1,0 +1,12 @@
+<div class="cc-card">
+    <p class="cc-card-title">{{groupData.title}}</p>
+    <div class="cc-card-avatars">
+        <div class="cc-card-avatar" *ngFor="let avatar of avatarList | truncate:[5]; let i = index">
+            <img [src]="avatar" alt="" [ngClass]="i === 4 ? 'img-darker' : ''">
+            <span *ngIf="i === 4">+2</span>
+        </div>
+    </div>
+    <div class="cc-card-actions-container">
+        <span class="cc-card-button">Join</span>
+    </div>    
+</div>

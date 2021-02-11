@@ -1,0 +1,11 @@
+<main>
+  <div class="cc-grid-header">
+    <sort-modal (sortingMethod)="notifyNewSorting($event)"></sort-modal>
+  </div>
+  <div class="cc-card-container" *ngIf="dataLoaded | async">    
+    <cc-card *ngFor="let userGroup of userGroupList.projects" [groupData]="userGroup">
+      <span>{{ userGroup.title }}</span>
+      <span>{{ userGroup.url }}</span>
+    </cc-card>  
+  </div>
+</main>

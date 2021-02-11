@@ -1,0 +1,59 @@
+.cc-card {
+    max-width: 30vw;
+    max-height: 30vh;
+    border: 1px solid #b4b4b4;
+    border-radius: 0.25em;
+
+    .cc-card-title {
+        padding: 0.5em;
+        margin: 0;
+    }
+
+    .cc-card-avatars {
+        display: flex;
+        justify-content: flex-start;  
+        flex-wrap: wrap;
+        padding: 1em 0 1em 0.5em;
+    }
+    
+    .cc-card-avatar {
+        position: relative;
+        cursor: pointer;
+
+        img {            
+            max-width: 50px;
+            border-radius: 100%;
+            padding: 0.3em;
+        }
+
+        .img-darker {
+            filter: brightness(50%);
+        }
+
+        span {
+            position: absolute;
+            top: 33%;
+            left: 33%;
+            color: white;
+        }
+    }
+
+    .cc-card-actions-container {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 1em;
+
+        .cc-card-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 3em;
+            height: 2em;                        
+            border: 1px solid #fff;
+            border-radius: 0.5em;
+            background-color: #58d830;
+            color: #fff;
+            cursor: pointer;
+        }
+    }    
+}
