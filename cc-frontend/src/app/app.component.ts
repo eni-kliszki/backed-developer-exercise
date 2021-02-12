@@ -3,8 +3,13 @@ import { RestService } from './shared/rest-service.service';
 import { Subscription } from 'rxjs';
 import * as lod from 'lodash';
 
+// components are used to visualize data
+// shouldn't contain logic
+
+
+// necessary to a component
 @Component({
-  selector: 'app-root',
+  selector: 'app-root', // select html tag, insert templateUrl's content in this tag
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
@@ -13,12 +18,13 @@ export class AppComponent implements OnDestroy {
   public userGroupList;
   public dataSubscription: Subscription;
 
-  constructor(@Inject(RestService) private _restService: RestService) {
+  // DI
+  constructor(@Inject(RestService) private _restService: RestService) { // inject and create variable
     this.dataSubscription = this._restService.sendGet().subscribe((data: any) => {
       this.userGroupList = data;
       console.log(this.userGroupList);
       this.dataLoaded = Promise.resolve(true);
-    });
+    }); 
   }
 
   ngOnDestroy() {

@@ -9,7 +9,7 @@ import { TruncatePipe } from './shared/truncate.pipe';
 import { SortModalComponent } from './sort-modal/sort-modal.component';
 
 @NgModule({
-  declarations: [
+  declarations: [ //register components
     AppComponent,
     CardComponent,
     TruncatePipe,    
@@ -19,8 +19,8 @@ import { SortModalComponent } from './sort-modal/sort-modal.component';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [
-    RestService
+  providers: [ // register all the dependencies in this module
+    RestService //single instance - singleton
   ],
   bootstrap: [AppComponent]
 })

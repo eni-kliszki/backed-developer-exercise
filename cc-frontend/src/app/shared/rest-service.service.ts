@@ -1,6 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+// useable with DI, component decorator contains this dec.
 @Injectable({
   providedIn: 'root'
 })
