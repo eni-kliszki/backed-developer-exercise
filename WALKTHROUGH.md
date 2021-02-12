@@ -4,6 +4,7 @@
 * Worth to note
 
 ## Timetable
+
 11.02.:
 
 * 12:00 - 17:00
@@ -19,6 +20,8 @@
   - Create group to be able to manage Docker as a non-root user
   - Run the skeleton code
   - Watch videos about class based Typescript
+
+____________________________________________________________________
 
 12.02.:
 
@@ -43,13 +46,32 @@
 
 * 13:00 - 14:00
 
-  Planned:
+  Planned and Actual
   - JobHunt status(Ofő óra)
+
+* 14:00 - 14:30:
+  
+  Planned:
+  - Create Spring Boot app
   
   Actual:
-  - JobHunt status(Ofő óra)
+  - Wait for IntelliJ to create an app
+  - Create a basic plan
 
+* 15:00 - 16:00:
 
+  Planned and Actual
+  - Personal mentoring session with Benec
+
+* 16:30 - 17:30:
+  
+  Planned:
+  - Create DB with user, team and project tables
+  - Create REST controller
+  
+  Actual:
+  - Create user entity and DB
+  - Create basic test
 
 ##Painpoints
 
