@@ -32,6 +32,24 @@
   - Watch videos about Angular
   - Understand the basics of the skeleton code
 
+* 12:00 - 13:00
+
+  Planned:
+  - Create uml class diaggram to backend
+  - Plan
+  
+  Actual:
+  - Eat 
+
+* 13:00 - 14:00
+
+  Planned:
+  - JobHunt status(Ofő óra)
+  
+  Actual:
+  - JobHunt status(Ofő óra)
+
+
 
 ##Painpoints
 
