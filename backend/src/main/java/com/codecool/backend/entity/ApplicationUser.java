@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -25,4 +27,14 @@ public class ApplicationUser {
     private Location location;
 
     private int experiencePoint;
+
+    @ManyToMany(mappedBy="applicationUsers")
+    private Set<Team> teams = new HashSet<>();
+
+//    public void addTeam(Team team) {
+//        if (!teams.contains(team)) {
+//            teams.add(team);
+//            team.addUser(this);
+//        }
+//    }
 }

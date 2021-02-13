@@ -25,6 +25,8 @@ ____________________________________________________________________
 
 12.02.:
 
+* 09:00 - 09:30: Attendance
+
 * 09:30 - 10:30
 
   Planned:
@@ -73,11 +75,34 @@ ____________________________________________________________________
   - Create user entity and DB
   - Create basic test
 
+*18:30 - 20:00:
+    
+  Planned:
+  - Create DB with team and project tables
+  - Create REST controller
+  
+  Actual:
+  - Stuck at creating ManyToMany retalitonships
+  - 21:30 - 22:00: get java.lang.NullPointerException: null
+
+_______________________________________________________________
+
+13.02.:
+
+* 09:00 - 10:00:
+    
+  Planned:
+  - Bugfix
+  
+  Actual:
+  - 
+
+
 ##Painpoints
 
 - Docker was hard to understand at first
 - Understand skeleton code
-- 
+- IntelliJ kills my laptop ten times a day
 
 ##Worth to note
 

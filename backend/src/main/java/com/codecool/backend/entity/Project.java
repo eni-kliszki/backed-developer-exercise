@@ -1,15 +1,10 @@
 package com.codecool.backend.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -23,6 +18,15 @@ public class Project {
 
     @Column(nullable = false)
     private String title;
-    private Long teamId;
+
+    @ManyToMany
+    @JoinTable(
+            name = "teams_projects",
+            joinColumns = @JoinColumn(name = "project_id"),
+            inverseJoinColumns = @JoinColumn(name = "team_id"))
+    @Singular
+    Set<Team> teams;
+
     private LocalDate created;
+
 }
