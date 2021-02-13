@@ -119,6 +119,15 @@ _______________________________________________________________
   - Create rows
   - Create basic controller
 
+* 17:00 - 18:00:
+     
+  Planned:
+  - Create REST controller
+  
+  Actual:
+  - Create REST controller, send project data almost as required
+  - Fight against Lombok
+
 
 ##Painpoints
 

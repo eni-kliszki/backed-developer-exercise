@@ -1,10 +1,7 @@
 package com.codecool.backend.entity;
 
 import com.codecool.backend.modal.Location;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;

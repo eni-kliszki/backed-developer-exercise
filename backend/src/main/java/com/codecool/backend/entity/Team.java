@@ -19,6 +19,8 @@ public class Team {
     private String name;
 
     @ManyToMany(cascade = CascadeType.PERSIST)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     @JoinTable(
             name="TEAMS_USERS",
             joinColumns=@JoinColumn(name="TEAM_ID", referencedColumnName="ID"),
@@ -28,6 +30,7 @@ public class Team {
     @OneToMany(mappedBy="team", cascade = CascadeType.PERSIST)
     @EqualsAndHashCode.Exclude
     @Singular
+    @ToString.Exclude
     private Set<Project> projects;
 
 }
