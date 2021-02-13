@@ -50,12 +50,25 @@ public class BackendApplication {
 
             ApplicationUser jane = new ApplicationUser();
             jane.setName("Jane");
-            jane.setLocation(Location.MISKOLC);
+            jane.setLocation(Location.BUDAPEST);
             jane.setExperiencePoint(60);
+
+            ApplicationUser jack = new ApplicationUser();
+            jack.setName("Jack");
+            jack.setLocation(Location.MISKOLC);
+            jack.setExperiencePoint(55);
+
+            ApplicationUser jill = new ApplicationUser();
+            jill.setName("Jill");
+            jill.setLocation(Location.MISKOLC);
+            jill.setExperiencePoint(45);
 
             //teams
             Team team1 = new Team();
             team1.setName("BestTeam");
+
+            Team team2 = new Team();
+            team2.setName("Jack&Jill");
 
             //projects
             Project p1 = new Project();
@@ -81,7 +94,11 @@ public class BackendApplication {
             team1.getApplicationUsers().add(john);
             team1.getApplicationUsers().add(jane);
 
+            team2.getApplicationUsers().add(jack);
+            team2.getApplicationUsers().add(jill);
+
             p1.getTeams().add(team1);
+            p1.getTeams().add(team2);
 
             projectRepository.save(p1);
             projectRepository.save(p2);
