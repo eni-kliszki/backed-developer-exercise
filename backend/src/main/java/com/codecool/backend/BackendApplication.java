@@ -35,48 +35,48 @@ public class BackendApplication {
             ApplicationUser adi = ApplicationUser.builder()
                     .name("Ádi")
                     .location(Location.BUDAPEST)
-                    .experiencePoint(60)
+                    .experiencePoint(Map.of("JavaScript",100, "Java", 80, "Docker", 1, "TypeScript", 30))
                     .pictureURL("https://cc-journey-student-profile-images.s3.amazonaws.com/1f42627e-a65d-496c-abde-c82c109f410a")
                     .build();
 
             ApplicationUser fazi = ApplicationUser.builder()
                     .name("Fazi")
-                    .experiencePoint(55)
+                    .experiencePoint(Map.of("JavaScript",90, "Java", 80, "Docker", 1, "TypeScript", 10))
                     .location(Location.BUDAPEST)
                     .pictureURL("https://cc-journey-student-profile-images.s3.amazonaws.com/672158fb-626d-4cc5-b8dd-bb20153aadde")
                     .build();
 
             ApplicationUser marci = ApplicationUser.builder()
                     .name("Marci")
-                    .experiencePoint(55)
+                    .experiencePoint(Map.of("JavaScript",90, "Java", 90, "Docker", 1, "TypeScript", 20))
                     .location(Location.MISKOLC)
                     .pictureURL("https://storage.googleapis.com/journey-profile-images/fb688946-eccb-47ee-ae54-84a8e0d74d42.png")
                     .build();
 
             ApplicationUser omar = ApplicationUser.builder()
                     .name("Omar")
-                    .experiencePoint(50)
+                    .experiencePoint(Map.of("JavaScript",80, "Java", 80, "Docker", 1, "TypeScript", 1))
                     .location(Location.MISKOLC)
                     .pictureURL("https://cc-journey-student-profile-images.s3.amazonaws.com/d6c6e99a-3bbd-4754-b677-bca318dc0905")
                     .build();
 
             ApplicationUser eszkis = ApplicationUser.builder()
                     .name("Eszkis")
-                    .experiencePoint(50)
+                    .experiencePoint(Map.of("JavaScript",60, "Java", 100, "Docker", 1, "TypeScript", 1))
                     .location(Location.MISKOLC)
                     .pictureURL("https://cc-journey-student-profile-images.s3.amazonaws.com/b9361d47-dc90-44b9-ad1e-4abdf5bd7877")
                     .build();
 
             ApplicationUser katt = ApplicationUser.builder()
                     .name("Katt")
-                    .experiencePoint(50)
+                    .experiencePoint(Map.of("JavaScript",70, "Java", 70, "Docker", 1, "TypeScript", 1))
                     .location(Location.WARSAW)
                     .pictureURL("https://cc-journey-student-profile-images.s3.amazonaws.com/291fcab0-eadc-497e-b53e-3583e3d7b228")
                     .build();
 
             ApplicationUser eni = ApplicationUser.builder()
                     .name("Eni")
-                    .experiencePoint(50)
+                    .experiencePoint(Map.of("JavaScript",80, "Java", 80, "Docker", 1, "TypeScript", 30))
                     .location(Location.WARSAW)
                     .pictureURL("https://cc-journey-student-profile-images.s3.amazonaws.com/9ebc62ee-7c59-44fb-9014-7cebe8fae924")
                     .build();

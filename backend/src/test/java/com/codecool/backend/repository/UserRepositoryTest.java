@@ -10,6 +10,7 @@ import org.springframework.test.context.ActiveProfiles;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -28,13 +29,13 @@ class UserRepositoryTest {
         john = ApplicationUser.builder()
                 .name("John")
                 .location(Location.BUDAPEST)
-                .experiencePoint(50)
+                .experiencePoint(Map.of("JavaScript",80, "Java", 80, "Docker", 1, "TypeScript", 30))
                 .build();
 
         jane = ApplicationUser.builder()
                 .name("Jane")
                 .location(Location.MISKOLC)
-                .experiencePoint(60)
+                .experiencePoint(Map.of("JavaScript",80, "Java", 80, "Docker", 1, "TypeScript", 30))
                 .build();
 
         repository.saveAll(Arrays.asList(john, jane));

@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @RestController
 @CrossOrigin
@@ -35,11 +32,10 @@ public class ProjectController {
             teamProject.setUrl(project.getGithubURL());
             teamProject.setCreated(project.getCreated());
 
-            Set<String> teamAvatarUrls = new HashSet<>();
             project.getTeam().getApplicationUsers().stream().forEach(user -> {
-                teamAvatarUrls.add(user.getPictureURL());
+                teamProject.getTeamAvatarUrls().add(user.getPictureURL());
+                teamProject.getUsersExperiencePoints().add(user.getExperiencePoint());
             });
-            teamProject.setTeamAvatarUrls(teamAvatarUrls);
 
             teamProjects.add(teamProject);
         });

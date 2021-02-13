@@ -7,8 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Data
 @NoArgsConstructor
@@ -19,4 +18,5 @@ public class TeamProject {
     private String url;
     private Set<String> teamAvatarUrls = new HashSet<>();
     private LocalDate created;
+    List<Map<String, Integer>> usersExperiencePoints = new ArrayList<>();
 }

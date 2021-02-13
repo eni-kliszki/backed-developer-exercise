@@ -141,8 +141,18 @@ _______________________________________________________________
   Planned:
   - Change background color
   
-  Actual: 18:00-18:10
+  Actual:
+  - Change background color
+  - Pull request
+
+* 18:30 - 19:30:
+     
+  Planned:
+  - Display the average experience points
+  
+  Actual:
   - 
+
 
 
 ##Painpoints
