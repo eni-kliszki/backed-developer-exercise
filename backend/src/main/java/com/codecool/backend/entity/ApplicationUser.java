@@ -4,7 +4,9 @@ import com.codecool.backend.modal.Location;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 @Data
@@ -23,7 +25,12 @@ public class ApplicationUser {
     @Enumerated(EnumType.STRING)
     private Location location;
 
-    private int experiencePoint;
+    @ElementCollection
+    @MapKeyColumn(name="technology")
+    @Column(name="points")
+    @CollectionTable(name="experience_point", joinColumns=@JoinColumn(name="id"))
+    private Map<String, Integer> experiencePoint = new HashMap<>();
+
     private String pictureURL;
 
     @ManyToMany(mappedBy="applicationUsers")
