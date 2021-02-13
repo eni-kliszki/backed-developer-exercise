@@ -4,10 +4,7 @@ import com.codecool.backend.entity.ApplicationUser;
 import com.codecool.backend.entity.Project;
 import com.codecool.backend.entity.Team;
 import com.codecool.backend.modal.Location;
-import com.codecool.backend.repository.ProjectRepository;
 import com.codecool.backend.repository.TeamRepository;
-import com.codecool.backend.repository.UserRepository;
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,22 +12,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
 import java.time.LocalDate;
 import java.util.*;
 
 
 @SpringBootApplication
 public class BackendApplication {
-
-    @Autowired
-    UserRepository userRepository;
-
-    @Autowired
-    ProjectRepository projectRepository;
 
     @Autowired
     TeamRepository teamRepository;
@@ -157,7 +144,6 @@ public class BackendApplication {
             teamRepository.save(team1);
             teamRepository.save(team2);
             teamRepository.save(team3);
-
         };
     }
 }
