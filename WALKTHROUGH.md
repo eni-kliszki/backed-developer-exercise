@@ -95,7 +95,16 @@ _______________________________________________________________
   - Bugfix
   
   Actual:
-  - 
+  - Bugfix
+  - Create persistent tables and join tables to be able to store many to many relationships
+
+* 10:00 - 11:00:
+     
+  Planned:
+  - Store project urls in the join table as an additional column
+  
+  Actual: 10:00 - 12:00
+  - Get some ugly error
 
 
 ##Painpoints
