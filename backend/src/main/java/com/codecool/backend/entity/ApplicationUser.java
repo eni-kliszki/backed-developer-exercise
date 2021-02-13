@@ -27,6 +27,7 @@ public class ApplicationUser {
     private Location location;
 
     private int experiencePoint;
+    private String pictureURL;
 
     @ManyToMany(mappedBy="applicationUsers")
     private Set<Team> teams = new HashSet<>();

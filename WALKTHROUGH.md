@@ -105,6 +105,17 @@ _______________________________________________________________
   
   Actual: 10:00 - 12:00
   - Get some ugly error
+  - Found out I misunderstood the requirements
+
+
+* 16:00 - 17:00:
+     
+  Planned:
+  - Store data
+  - Create REST controller
+  
+  Actual:
+  - 
 
 
 ##Painpoints

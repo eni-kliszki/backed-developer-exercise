@@ -45,96 +45,121 @@ public class BackendApplication {
         return args -> {
 
             //users
-            ApplicationUser john = new ApplicationUser();
-            john.setName("John");
-            john.setLocation(Location.BUDAPEST);
-            john.setExperiencePoint(50);
+            ApplicationUser adi = ApplicationUser.builder()
+                    .name("Ádi")
+                    .location(Location.BUDAPEST)
+                    .experiencePoint(60)
+                    .pictureURL("https://cc-journey-student-profile-images.s3.amazonaws.com/1f42627e-a65d-496c-abde-c82c109f410a")
+                    .build();
 
-            ApplicationUser jane = new ApplicationUser();
-            jane.setName("Jane");
-            jane.setLocation(Location.BUDAPEST);
-            jane.setExperiencePoint(60);
+            ApplicationUser fazi = ApplicationUser.builder()
+                    .name("Fazi")
+                    .experiencePoint(55)
+                    .location(Location.BUDAPEST)
+                    .pictureURL("https://cc-journey-student-profile-images.s3.amazonaws.com/672158fb-626d-4cc5-b8dd-bb20153aadde")
+                    .build();
 
-            ApplicationUser jack = new ApplicationUser();
-            jack.setName("Jack");
-            jack.setLocation(Location.MISKOLC);
-            jack.setExperiencePoint(55);
+            ApplicationUser marci = ApplicationUser.builder()
+                    .name("Marci")
+                    .experiencePoint(55)
+                    .location(Location.MISKOLC)
+                    .pictureURL("https://storage.googleapis.com/journey-profile-images/fb688946-eccb-47ee-ae54-84a8e0d74d42.png")
+                    .build();
 
-            ApplicationUser jill = new ApplicationUser();
-            jill.setName("Jill");
-            jill.setLocation(Location.MISKOLC);
-            jill.setExperiencePoint(45);
+            ApplicationUser omar = ApplicationUser.builder()
+                    .name("Omar")
+                    .experiencePoint(50)
+                    .location(Location.MISKOLC)
+                    .pictureURL("https://cc-journey-student-profile-images.s3.amazonaws.com/d6c6e99a-3bbd-4754-b677-bca318dc0905")
+                    .build();
 
-//            Session session = entityManager
-//                    .unwrap( Session.class );
+            ApplicationUser eszkis = ApplicationUser.builder()
+                    .name("Eszkis")
+                    .experiencePoint(50)
+                    .location(Location.MISKOLC)
+                    .pictureURL("https://cc-journey-student-profile-images.s3.amazonaws.com/b9361d47-dc90-44b9-ad1e-4abdf5bd7877")
+                    .build();
+
+            ApplicationUser katt = ApplicationUser.builder()
+                    .name("Katt")
+                    .experiencePoint(50)
+                    .location(Location.WARSAW)
+                    .pictureURL("https://cc-journey-student-profile-images.s3.amazonaws.com/291fcab0-eadc-497e-b53e-3583e3d7b228")
+                    .build();
+
+            ApplicationUser eni = ApplicationUser.builder()
+                    .name("Eni")
+                    .experiencePoint(50)
+                    .location(Location.WARSAW)
+                    .pictureURL("https://cc-journey-student-profile-images.s3.amazonaws.com/9ebc62ee-7c59-44fb-9014-7cebe8fae924")
+                    .build();
+
+            //projects
+            Project p1 = Project.builder()
+                    .title("You Don't Know JS Yet")
+                    .githubURL("https://github.com/getify/You-Dont-Know-JS")
+                    .created(LocalDate.of(2020, 02, 01))
+                    .build();
+
+            Project p2 = Project.builder()
+                    .title("List of Free Learning Resources")
+                    .githubURL("https://github.com/EbookFoundation/free-programming-books")
+                    .created(LocalDate.of(2020, 02, 02))
+                    .build();
+
+            Project p3 = Project.builder()
+                    .title("Bootstrap")
+                    .githubURL("https://github.com/twbs/bootstrap")
+                    .created(LocalDate.of(2020, 02, 03))
+                    .build();
+
+            Project p4 = Project.builder()
+                    .title("Coding Interview University")
+                    .githubURL("https://github.com/jwasham/coding-interview-university")
+                    .created(LocalDate.of(2020, 02, 04))
+                    .build();
+
+            Project p5 = Project.builder()
+                    .title("Awesome Python")
+                    .githubURL("https://github.com/vinta/awesome-python")
+                    .created(LocalDate.of(2020, 02, 05))
+                    .build();
 
             //teams
             Team team1 = new Team();
             team1.setName("BestTeam");
-
-//            Team team1 = session
-//                    .bySimpleNaturalId(Team.class)
-//                    .load("Best Team");
+            team1.setProjects(Set.of(p1, p2));
 
             Team team2 = new Team();
-            team2.setName("Jack&Jill");
+            team2.setName("Msc");
+            team2.setProjects(Set.of(p3));
 
-            System.out.println(team1);
-            System.out.println(team2);
-//            Team team2 = session
-//                    .bySimpleNaturalId(Team.class)
-//                    .load("Jack&Jill");
+            Team team3 = new Team();
+            team3.setName("Warsi");
+            team3.setProjects(Set.of(p4, p5));
 
-            //projects
-//            Project p1 = new Project();
-//            p1.setTitle("You Don't Know JS Yet");
-//            p1.setCreated(LocalDate.of(2020, 02, 01));
+            team1.getApplicationUsers().add(adi);
+            team1.getApplicationUsers().add(fazi);
 
-            Project p1 = new Project();
-            p1.setTitle("You Don't Know JS Yet");
-            p1.setCreated(LocalDate.of(2020, 02, 01));
-            p1.setId(1L);
+            team2.getApplicationUsers().add(marci);
+            team2.getApplicationUsers().add(eszkis);
+            team2.getApplicationUsers().add(omar);
 
-            Project p2 = new Project();
-            p2.setTitle("List of Free Learning Resources");
-            p2.setCreated(LocalDate.of(2020, 02, 02));
-            p2.setId(2L);
+            team3.getApplicationUsers().add(katt);
+            team3.getApplicationUsers().add(eni);
 
-            System.out.println(p1);
-            System.out.println(p2);
+            p1.setTeam(team1);
+            p2.setTeam(team1);
+            p3.setTeam(team2);
+            p4.setTeam(team3);
+            p5.setTeam(team3);
 
-            team1.getApplicationUsers().add(john);
-            team1.getApplicationUsers().add(jane);
-
-            team2.getApplicationUsers().add(jack);
-            team2.getApplicationUsers().add(jill);
-
-//            p1.getTeams().add(team1);
-//            p1.getTeams().add(team2);
-
-            p1.addTeam(team1);
-            p1.addTeam(team2);
-
-            projectRepository.save(p1);
-            projectRepository.save(p2);
+            teamRepository.save(team1);
+            teamRepository.save(team2);
+            teamRepository.save(team3);
 
         };
     }
 }
 
-//
-//    Project p3 = new Project();
-//            p3.setTitle("Bootstrap");
-//                    p3.setCreated(LocalDate.of(2020, 02, 03));
-//
-//                    Project p4 = new Project();
-//                    p4.setTitle("Coding Interview University");
-//                    p4.setCreated(LocalDate.of(2020, 02, 04));
-//
-//                    Project p5 = new Project();
-//                    p5.setTitle("Awesome Python");
-//                    p5.setCreated(LocalDate.of(2020, 02, 05));
-//
-//                    projectRepository.save(p3);
-//                    projectRepository.save(p4);
-//                    projectRepository.save(p5);
+
