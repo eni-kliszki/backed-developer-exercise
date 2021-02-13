@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -19,13 +20,12 @@ public class Project {
     @Column(nullable = false)
     private String title;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(
-            name = "teams_projects",
-            joinColumns = @JoinColumn(name = "project_id"),
-            inverseJoinColumns = @JoinColumn(name = "team_id"))
-    @Singular
-    Set<Team> teams;
+            name="PROJECTS_TEAMS",
+            joinColumns=@JoinColumn(name="PROJECT_ID", referencedColumnName="ID"),
+            inverseJoinColumns=@JoinColumn(name="TEAM_ID", referencedColumnName="ID"))
+    private Set<Team> teams = new HashSet<>();
 
     private LocalDate created;
 

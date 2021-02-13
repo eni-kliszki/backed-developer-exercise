@@ -27,12 +27,5 @@ public class Team {
     private Set<ApplicationUser> applicationUsers = new HashSet<>();
 
     @ManyToMany(mappedBy = "teams")
-    Set<Project> projects;
-
-//    public void addUser(ApplicationUser applicationUser) {
-//        if (!users.contains(applicationUser)) {
-//            users.add(applicationUser);
-//            applicationUser.addTeam(this);
-//        }
-//    }
+    Set<Project> projects = new HashSet<>();
 }

@@ -41,6 +41,8 @@ public class BackendApplication {
     @Profile("production")
     public CommandLineRunner init() {
         return args -> {
+
+            //users
             ApplicationUser john = new ApplicationUser();
             john.setName("John");
             john.setLocation(Location.BUDAPEST);
@@ -51,40 +53,43 @@ public class BackendApplication {
             jane.setLocation(Location.MISKOLC);
             jane.setExperiencePoint(60);
 
+            //teams
             Team team1 = new Team();
             team1.setName("BestTeam");
+
+            //projects
+            Project p1 = new Project();
+            p1.setTitle("You Don't Know JS Yet");
+            p1.setCreated(LocalDate.of(2020, 02, 01));
+
+            Project p2 = new Project();
+            p2.setTitle("List of Free Learning Resources");
+            p2.setCreated(LocalDate.of(2020, 02, 02));
+
+            Project p3 = new Project();
+            p3.setTitle("Bootstrap");
+            p3.setCreated(LocalDate.of(2020, 02, 03));
+
+            Project p4 = new Project();
+            p4.setTitle("Coding Interview University");
+            p4.setCreated(LocalDate.of(2020, 02, 04));
+
+            Project p5 = new Project();
+            p5.setTitle("Awesome Python");
+            p5.setCreated(LocalDate.of(2020, 02, 05));
 
             team1.getApplicationUsers().add(john);
             team1.getApplicationUsers().add(jane);
 
-            teamRepository.save(team1);
+            p1.getTeams().add(team1);
+
+            projectRepository.save(p1);
+            projectRepository.save(p2);
+            projectRepository.save(p3);
+            projectRepository.save(p4);
+            projectRepository.save(p5);
         };
     }
 }
-//
-//            Project p1 = Project.builder()
-//                    .title("You Don't Know JS Yet")
-//                    .created(LocalDate.of(2020, 02, 01))
-//                    .team(team1)
-//                    .build();
-//
-//            Project p2 = Project.builder()
-//                    .title("List of Free Learning Resources")
-//                    .created(LocalDate.of(2020, 02, 02))
-//                    .build();
-//
-//            Project p3 = Project.builder()
-//                    .title("Bootstrap")
-//                    .created(LocalDate.of(2020, 02, 03))
-//                    .build();
-//
-//            Project p4 = Project.builder()
-//                    .title("Coding Interview University")
-//                    .created(LocalDate.of(2020, 02, 04))
-//                    .build();
-//
-//            Project p5 = Project.builder()
-//                    .title("Awesome Python")
-//                    .created(LocalDate.of(2020, 02, 05))
-//                    .build();
+
 

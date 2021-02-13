@@ -30,11 +30,4 @@ public class ApplicationUser {
 
     @ManyToMany(mappedBy="applicationUsers")
     private Set<Team> teams = new HashSet<>();
-
-//    public void addTeam(Team team) {
-//        if (!teams.contains(team)) {
-//            teams.add(team);
-//            team.addUser(this);
-//        }
-//    }
 }
