@@ -76,7 +76,7 @@ public class BackendApplication {
 
             ApplicationUser eni = ApplicationUser.builder()
                     .name("Eni")
-                    .experiencePoint(Map.of("JavaScript",80, "Java", 80, "Docker", 1, "TypeScript", 30))
+                    .experiencePoint(Map.of("JavaScript",80, "Java", 80, "Docker", 10, "TypeScript", 30))
                     .location(Location.WARSAW)
                     .pictureURL("https://cc-journey-student-profile-images.s3.amazonaws.com/9ebc62ee-7c59-44fb-9014-7cebe8fae924")
                     .build();

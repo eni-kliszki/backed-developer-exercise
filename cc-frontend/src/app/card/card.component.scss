@@ -38,6 +38,14 @@
         }
     }
 
+    .cc-card-points{
+        position: relative;
+        left: 100px;
+        border: 1px solid darkgreen;
+        border-radius: 0.25em;
+        padding: 5px;
+    }
+
     .cc-card-actions-container {
         display: flex;
         justify-content: center;
