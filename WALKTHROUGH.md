@@ -136,6 +136,15 @@ _______________________________________________________________
   Actual: 18:00-18:10
   - Change Typescript code to represent the fetch data properly
 
+* 18:20 - 18:30:
+     
+  Planned:
+  - Change background color
+  
+  Actual: 18:00-18:10
+  - 
+
+
 ##Painpoints
 
 - Docker was hard to understand at first
