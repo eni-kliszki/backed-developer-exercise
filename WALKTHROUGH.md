@@ -128,6 +128,13 @@ _______________________________________________________________
   - Create REST controller, send project data almost as required
   - Fight against Lombok
 
+* 18:00 - 19:00:
+     
+  Planned:
+  - Complete response
+  
+  Actual: 18:00-18:10
+  - Change Typescript code to represent the fetch data properly
 
 ##Painpoints
 
