@@ -115,7 +115,9 @@ _______________________________________________________________
   - Create REST controller
   
   Actual:
-  - 
+  - Store data
+  - Create rows
+  - Create basic controller
 
 
 ##Painpoints

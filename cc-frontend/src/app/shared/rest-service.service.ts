@@ -9,7 +9,7 @@ export class RestService {
   constructor(@Inject(HttpClient) private _http: HttpClient) { }
 
   public sendGet() {
-    const BASE_URL = 'http://localhost:3000/data';
+    const BASE_URL = 'http://localhost:8080/data';
 
     return this._http.get(BASE_URL);
   }
