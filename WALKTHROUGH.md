@@ -207,9 +207,7 @@ _______________________________________________________________
   - Hall-of-fame
   
   Actual:
-  - 
-
-
+  - create Hall of fame component with basic style
 
 
 ##Painpoints
