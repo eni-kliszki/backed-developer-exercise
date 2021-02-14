@@ -42,7 +42,7 @@ public class ProjectController {
 
             teamProjects.add(teamProject);
         });
-        findMates();
+        fillChanceToLearnByUsers();
         return ResponseEntity.ok(teamProjects);
     }
 
@@ -61,8 +61,37 @@ public class ProjectController {
             });
             userMates.put(user, mates);
         });
-        System.out.println(userMates);
         return userMates;
+    }
+
+    private void fillChanceToLearnByUsers() {
+        Map<ApplicationUser, Set<ApplicationUser>> userMates = findMates();
+        for (Map.Entry<ApplicationUser, Set<ApplicationUser>> userMatesEntry : userMates.entrySet()) {
+            ApplicationUser user = userMatesEntry.getKey();
+            userMatesEntry.getValue().stream().forEach(mate -> {
+                for (Map.Entry<String, Integer> experience : mate.getExperiencePoint().entrySet()) {
+                    String technology = experience.getKey();
+                    int mateExperiencePoint = experience.getValue();
+                    if(user.getExperiencePoint().containsKey(technology)){
+                        if(mateExperiencePoint > user.getExperiencePoint().get(technology)){
+                            int diff = mateExperiencePoint - user.getExperiencePoint().get(technology);
+                            if(!user.getChanceToLearn().containsKey(technology)){
+                                user.getChanceToLearn().put(technology, diff);
+                            }else{
+                                user.getChanceToLearn().put(technology, user.getChanceToLearn().get(technology) + diff);
+                            }
+                        }
+                    }else{
+                        if(!user.getChanceToLearn().containsKey(experience.getKey())){
+                            user.getChanceToLearn().put(technology, mateExperiencePoint);
+                        }else{
+                            user.getChanceToLearn().put(technology, user.getChanceToLearn().get(technology) + mateExperiencePoint);
+                        }
+                    }
+
+                }
+            });
+        }
     }
 
 }
