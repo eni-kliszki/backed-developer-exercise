@@ -7,16 +7,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from './card/card.component';
 import { TruncatePipe } from './shared/truncate.pipe';
 import { SortModalComponent } from './sort-modal/sort-modal.component';
+import { FameComponent } from './fame/fame.component';
 
 @NgModule({
   declarations: [ //register components
     AppComponent,
     CardComponent,
     TruncatePipe,    
-    SortModalComponent
+    SortModalComponent,
+    FameComponent
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     HttpClientModule
   ],
   providers: [ // register all the dependencies in this module

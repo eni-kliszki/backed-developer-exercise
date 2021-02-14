@@ -4,6 +4,8 @@ import com.codecool.backend.entity.ApplicationUser;
 import com.codecool.backend.entity.Project;
 import com.codecool.backend.entity.Team;
 import com.codecool.backend.modal.TeamProject;
+import com.codecool.backend.modal.TeamWithUsers;
+import com.codecool.backend.modal.UserModel;
 import com.codecool.backend.repository.ProjectRepository;
 import com.codecool.backend.repository.TeamRepository;
 import com.codecool.backend.repository.UserRepository;
@@ -52,12 +54,25 @@ public class ProjectController {
     }
 
     @GetMapping("/fame")
-    public ResponseEntity<List<Team>> getTheBest() {
+    public ResponseEntity<List<TeamWithUsers>> getTheBest() {
         List<ApplicationUser> users = userRepository.findAll();
         fillChanceToLearnByUsers(users);
         ApplicationUser UserHasBiggestChanceToLearnMost = findUserHasBiggestChanceToLearnMost(users);
-        System.out.println(find3MostExperiencedTeams());
-        return ResponseEntity.ok(find3MostExperiencedTeams());
+        List<Team> teams = find3MostExperiencedTeams();
+
+        List<TeamWithUsers> modalTeams = new ArrayList<>();
+
+        teams.stream().forEach(team -> {
+            TeamWithUsers teamWithUsers = new TeamWithUsers();
+            teamWithUsers.setName(team.getName());
+            teamWithUsers.setAverageExperiencePoint(team.getAverageExperiencePoint());
+
+            team.getApplicationUsers().stream().forEach(user -> {
+                teamWithUsers.getUsersUrl().add(user.getPictureURL());
+            });
+            modalTeams.add(teamWithUsers);
+        });
+        return ResponseEntity.ok(modalTeams);
     }
 
     private Map<ApplicationUser, Set<ApplicationUser>> findMates(List<ApplicationUser> users) {
@@ -130,7 +145,7 @@ public class ProjectController {
     private List<Team> find3MostExperiencedTeams() {
         setTeamsAverageExperiencePoint();
         List<Team> teams = teamRepository.findAll();
-        Collections.sort(teams);
+        Collections.sort(teams, Collections.reverseOrder());
         return teams.subList(0, 3);
     }
 
@@ -146,20 +161,4 @@ public class ProjectController {
         return team.getApplicationUsers().stream().flatMap(user ->
                 user.getExperiencePoint().entrySet().stream()).mapToInt(Map.Entry::getValue).sum();
     }
-
 }
-//
-//    fillExperiencePointByTeyhnologies() {
-//        for(let experiencePoint of this.experiencePoints){
-//            for(let key in experiencePoint){
-//                if(!this.averageExperiencePointByTeyhnologies.has(key)){
-//                    this.averageExperiencePointByTeyhnologies.set(key, experiencePoint[key]);
-//                    this.technologyUsers.set(key, 1);
-//                }else{
-//                    let point = this.averageExperiencePointByTeyhnologies.get(key);
-//                    this.averageExperiencePointByTeyhnologies.set(key, point + experiencePoint[key]);
-//                    this.technologyUsers.set(key, this.technologyUsers.get(key)+1);
-//                }
-//            }
-//        }
-//    }
