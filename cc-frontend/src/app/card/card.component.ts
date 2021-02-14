@@ -14,6 +14,7 @@ export class CardComponent implements OnInit {
   public users : number;
 
   public averageExperiencePointByTeyhnologies = new Map<String, number>();
+  public technologyUsers = new Map<String, number>();
 
   constructor() {    
   }
@@ -23,9 +24,11 @@ export class CardComponent implements OnInit {
       for(let key in experiencePoint){
         if(!this.averageExperiencePointByTeyhnologies.has(key)){
           this.averageExperiencePointByTeyhnologies.set(key, experiencePoint[key]); 
+          this.technologyUsers.set(key, 1);
         }else{
           let point = this.averageExperiencePointByTeyhnologies.get(key);
           this.averageExperiencePointByTeyhnologies.set(key, point + experiencePoint[key]); 
+          this.technologyUsers.set(key, this.technologyUsers.get(key)+1);
         }
       }
     }
@@ -33,7 +36,7 @@ export class CardComponent implements OnInit {
 
   countExperiencePointAverage() { 
     this.averageExperiencePointByTeyhnologies.forEach((value: number, key: string) => {
-      let average = this.averageExperiencePointByTeyhnologies.get(key) / this.users;
+      let average = value / this.technologyUsers.get(key);
       average = Math.round((average + Number.EPSILON) * 100) / 100;
       this.averageExperiencePointByTeyhnologies.set(key, average)
     });

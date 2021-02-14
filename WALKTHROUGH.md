@@ -180,8 +180,27 @@ _______________________________________________________________
   Planned:
   - Fix the bug at the frontend side
   
+  Actual: 12:10-12:30
+  - Fix the bug at the frontend side
+
+* 12:30 - 13:00:
+    
+  Planned:
+  - Plan experience task
+  
   Actual:
-  - 
+  - Plan a little
+  - Order some junk food
+
+* 14:00 - 16:00:
+    
+  Planned:
+  - Experience task
+  
+  Actual:
+  - Create backend part
+
+
 
 ##Painpoints
 

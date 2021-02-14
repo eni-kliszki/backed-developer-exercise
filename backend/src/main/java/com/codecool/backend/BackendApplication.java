@@ -36,43 +36,43 @@ public class BackendApplication {
             ApplicationUser adi = new ApplicationUser();
                 adi.setName("Ádi");
                 adi.setLocation(Location.BUDAPEST);
-                adi.setExperiencePoint(Map.of("JavaScript",100, "Java", 80, "Docker", 1, "TypeScript", 30));
+                adi.setExperiencePoint(Map.of("JavaScript",100, "Java", 80, "TypeScript", 30));
                 adi.setPictureURL("https://cc-journey-student-profile-images.s3.amazonaws.com/1f42627e-a65d-496c-abde-c82c109f410a");
 
             ApplicationUser fazi = new ApplicationUser();
                 fazi.setName("Fazi");
                 fazi.setLocation(Location.BUDAPEST);
-                fazi.setExperiencePoint(Map.of("JavaScript",90, "Java", 80, "Docker", 1, "TypeScript", 10));
+                fazi.setExperiencePoint(Map.of("JavaScript",90, "Java", 80, "TypeScript", 10));
                 fazi.setPictureURL("https://cc-journey-student-profile-images.s3.amazonaws.com/672158fb-626d-4cc5-b8dd-bb20153aadde");
 
             ApplicationUser krisz = new ApplicationUser();
                 krisz.setName("Krisz");
                 krisz.setLocation(Location.BUDAPEST);
-                krisz.setExperiencePoint(Map.of("JavaScript",70, "Java", 80, "Docker", 1, "TypeScript", 1));
+                krisz.setExperiencePoint(Map.of("JavaScript",70, "Java", 80, "TypeScript", 1));
                 krisz.setPictureURL("https://cc-journey-student-profile-images.s3.amazonaws.com/385e9dc7-dc3b-4fe7-9daf-5941a8e09348");
 
             ApplicationUser marci = new ApplicationUser();
                 marci.setName("Marci");
                 marci.setLocation(Location.MISKOLC);
-                marci.setExperiencePoint(Map.of("JavaScript",90, "Java", 90, "Docker", 1, "TypeScript", 20));
+                marci.setExperiencePoint(Map.of("JavaScript",90, "Java", 90, "TypeScript", 20));
                 marci.setPictureURL("https://storage.googleapis.com/journey-profile-images/fb688946-eccb-47ee-ae54-84a8e0d74d42.png");
 
             ApplicationUser omar = new ApplicationUser();
                 omar.setName("Omar");
                 omar.setLocation(Location.MISKOLC);
-                omar.setExperiencePoint(Map.of("JavaScript",80, "Java", 80, "Docker", 1, "TypeScript", 1));
+                omar.setExperiencePoint(Map.of("JavaScript",80, "Java", 80,"Python", 70));
                 omar.setPictureURL("https://cc-journey-student-profile-images.s3.amazonaws.com/d6c6e99a-3bbd-4754-b677-bca318dc0905");
 
             ApplicationUser eszkis = new ApplicationUser();
                 eszkis.setName("Eszkis");
                 eszkis.setLocation(Location.MISKOLC);
-                eszkis.setExperiencePoint(Map.of("JavaScript",60, "Java", 100, "Docker", 1, "TypeScript", 1, "Python", 70));
+                eszkis.setExperiencePoint(Map.of("JavaScript",60, "Java", 100, "Python", 80));
                 eszkis.setPictureURL("https://cc-journey-student-profile-images.s3.amazonaws.com/b9361d47-dc90-44b9-ad1e-4abdf5bd7877");
 
             ApplicationUser katt = new ApplicationUser();
                 katt.setName("Katt");
                 katt.setLocation(Location.WARSAW);
-                katt.setExperiencePoint(Map.of("JavaScript",70, "Java", 70, "Docker", 1, "TypeScript", 1));
+                katt.setExperiencePoint(Map.of("JavaScript",70, "Java", 70));
                 katt.setPictureURL("https://cc-journey-student-profile-images.s3.amazonaws.com/291fcab0-eadc-497e-b53e-3583e3d7b228");
 
 
