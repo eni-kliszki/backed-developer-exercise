@@ -21,29 +21,30 @@ class UserRepositoryTest {
     @Autowired
     private UserRepository repository;
 
-    private ApplicationUser john;
-    private ApplicationUser jane;
+    private ApplicationUser adi;
+    private ApplicationUser marci;
 
     @BeforeEach
     private void init(){
-        john = ApplicationUser.builder()
-                .name("John")
-                .location(Location.BUDAPEST)
-                .experiencePoint(Map.of("JavaScript",80, "Java", 80, "Docker", 1, "TypeScript", 30))
-                .build();
 
-        jane = ApplicationUser.builder()
-                .name("Jane")
-                .location(Location.MISKOLC)
-                .experiencePoint(Map.of("JavaScript",80, "Java", 80, "Docker", 1, "TypeScript", 30))
-                .build();
+        ApplicationUser adi = new ApplicationUser();
+        adi.setName("Ádi");
+        adi.setLocation(Location.BUDAPEST);
+        adi.setExperiencePoint(Map.of("JavaScript",100, "Java", 80, "Docker", 1, "TypeScript", 30));
+        adi.setPictureURL("https://cc-journey-student-profile-images.s3.amazonaws.com/1f42627e-a65d-496c-abde-c82c109f410a");
 
-        repository.saveAll(Arrays.asList(john, jane));
+        ApplicationUser marci = new ApplicationUser();
+        marci.setName("Marci");
+        marci.setLocation(Location.MISKOLC);
+        marci.setExperiencePoint(Map.of("JavaScript",90, "Java", 90, "Docker", 1, "TypeScript", 20));
+        marci.setPictureURL("https://storage.googleapis.com/journey-profile-images/fb688946-eccb-47ee-ae54-84a8e0d74d42.png");
+
+        repository.saveAll(Arrays.asList(adi, marci));
     }
 
     @Test
     public void testFindUserByLocation(){
         List<ApplicationUser> users = repository.findAllByLocation(Location.MISKOLC);
-        assertEquals(jane, users.get(0));
+        assertEquals(marci, users.get(0));
     }
 }

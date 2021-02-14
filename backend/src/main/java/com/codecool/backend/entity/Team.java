@@ -18,7 +18,7 @@ public class Team {
     @Column(nullable = false)
     private String name;
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
+    @ManyToMany(targetEntity = ApplicationUser.class, cascade = {CascadeType.ALL})
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     @JoinTable(
