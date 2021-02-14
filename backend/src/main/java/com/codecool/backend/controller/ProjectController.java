@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicReference;
 
 @RestController
 @CrossOrigin
@@ -42,12 +43,13 @@ public class ProjectController {
 
             teamProjects.add(teamProject);
         });
-        fillChanceToLearnByUsers();
+        List<ApplicationUser> users = userRepository.findAll();
+        fillChanceToLearnByUsers(users);
+        findUserHasBiggestChanceToLearnMost(users);
         return ResponseEntity.ok(teamProjects);
     }
 
-    private Map<ApplicationUser, Set<ApplicationUser>> findMates() {
-        List<ApplicationUser> users = userRepository.findAll();
+    private Map<ApplicationUser, Set<ApplicationUser>> findMates(List<ApplicationUser> users) {
         Map<ApplicationUser, Set<ApplicationUser>> userMates = new HashMap<>();
 
         users.stream().forEach(user -> {
@@ -64,8 +66,8 @@ public class ProjectController {
         return userMates;
     }
 
-    private void fillChanceToLearnByUsers() {
-        Map<ApplicationUser, Set<ApplicationUser>> userMates = findMates();
+    private void fillChanceToLearnByUsers(List<ApplicationUser> users) {
+        Map<ApplicationUser, Set<ApplicationUser>> userMates = findMates(users);
         for (Map.Entry<ApplicationUser, Set<ApplicationUser>> userMatesEntry : userMates.entrySet()) {
             ApplicationUser user = userMatesEntry.getKey();
             userMatesEntry.getValue().stream().forEach(mate -> {
@@ -94,4 +96,23 @@ public class ProjectController {
         }
     }
 
+    private void findUserHasBiggestChanceToLearnMost(List<ApplicationUser> users) {
+        ApplicationUser userHasBiggestChance = null;
+        int biggestTechnologies = 0;
+        int biggestPoints = 0;
+        for (ApplicationUser user : users) {
+            int technologies = 0;
+            int points = 0;
+            for (Map.Entry<String, Integer> chance : user.getChanceToLearn().entrySet()) {
+                points += chance.getValue();
+                technologies++;
+            }
+            if(technologies > biggestTechnologies){
+                if(points > biggestPoints){
+                    userHasBiggestChance = user;
+                }
+            }
+        };
+        System.out.println(userHasBiggestChance);
+    }
 }
