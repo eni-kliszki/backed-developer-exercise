@@ -180,8 +180,8 @@ _______________________________________________________________
   Planned:
   - Fix the bug at the frontend side
   
-  Actual:
-  - 
+  Actual: 12:10-12:30
+  - Fix the bug at the frontend side
 
 ##Painpoints
 
