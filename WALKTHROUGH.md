@@ -199,6 +199,16 @@ _______________________________________________________________
   
   Actual:
   - Create backend part
+  - pull request
+
+* 18:30 - 20:00:
+    
+  Planned:
+  - Hall-of-fame
+  
+  Actual:
+  - 
+
 
 
 

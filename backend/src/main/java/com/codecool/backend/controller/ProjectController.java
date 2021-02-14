@@ -2,8 +2,10 @@ package com.codecool.backend.controller;
 
 import com.codecool.backend.entity.ApplicationUser;
 import com.codecool.backend.entity.Project;
+import com.codecool.backend.entity.Team;
 import com.codecool.backend.modal.TeamProject;
 import com.codecool.backend.repository.ProjectRepository;
+import com.codecool.backend.repository.TeamRepository;
 import com.codecool.backend.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -23,8 +25,11 @@ public class ProjectController {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private TeamRepository teamRepository;
+
     @GetMapping("/data")
-    public ResponseEntity<List<TeamProject>> getAllMedia() {
+    public ResponseEntity<List<TeamProject>> getAll() {
         List<Project> projects = projectRepository.findAll();
         List<TeamProject> teamProjects = new ArrayList<>();
 
@@ -42,10 +47,17 @@ public class ProjectController {
 
             teamProjects.add(teamProject);
         });
+        System.out.println(find3MostExperiencedTeams());
+        return ResponseEntity.ok(teamProjects);
+    }
+
+    @GetMapping("/fame")
+    public ResponseEntity<List<Team>> getTheBest() {
         List<ApplicationUser> users = userRepository.findAll();
         fillChanceToLearnByUsers(users);
         ApplicationUser UserHasBiggestChanceToLearnMost = findUserHasBiggestChanceToLearnMost(users);
-        return ResponseEntity.ok(teamProjects);
+        System.out.println(find3MostExperiencedTeams());
+        return ResponseEntity.ok(find3MostExperiencedTeams());
     }
 
     private Map<ApplicationUser, Set<ApplicationUser>> findMates(List<ApplicationUser> users) {
@@ -100,18 +112,54 @@ public class ProjectController {
         int biggestTechnologies = 0;
         int biggestPoints = 0;
         for (ApplicationUser user : users) {
-            int technologies = 0;
-            int points = 0;
-            for (Map.Entry<String, Integer> chance : user.getChanceToLearn().entrySet()) {
-                points += chance.getValue();
-                technologies++;
-            }
-            if(technologies > biggestTechnologies){
-                if(points > biggestPoints){
+            int technologies = user.getChanceToLearn().size();
+            if(technologies > biggestTechnologies) {
+                int points = 0;
+                for (Map.Entry<String, Integer> chance : user.getChanceToLearn().entrySet()) {
+                    points += chance.getValue();
+                    technologies++;
+                }
+                if (points > biggestPoints) {
                     userHasBiggestChance = user;
                 }
             }
         };
         return userHasBiggestChance;
     }
+
+    private List<Team> find3MostExperiencedTeams() {
+        setTeamsAverageExperiencePoint();
+        List<Team> teams = teamRepository.findAll();
+        Collections.sort(teams);
+        return teams.subList(0, 3);
+    }
+
+    private void setTeamsAverageExperiencePoint(){
+        List<Team> teams = teamRepository.findAll();
+        teams.stream().forEach(team -> {
+            int point = countExperiencePoints(team);
+            team.setAverageExperiencePoint((int) Math.round(point / team.getApplicationUsers().size()));
+        });
+    }
+
+    private int countExperiencePoints(Team team){
+        return team.getApplicationUsers().stream().flatMap(user ->
+                user.getExperiencePoint().entrySet().stream()).mapToInt(Map.Entry::getValue).sum();
+    }
+
 }
+//
+//    fillExperiencePointByTeyhnologies() {
+//        for(let experiencePoint of this.experiencePoints){
+//            for(let key in experiencePoint){
+//                if(!this.averageExperiencePointByTeyhnologies.has(key)){
+//                    this.averageExperiencePointByTeyhnologies.set(key, experiencePoint[key]);
+//                    this.technologyUsers.set(key, 1);
+//                }else{
+//                    let point = this.averageExperiencePointByTeyhnologies.get(key);
+//                    this.averageExperiencePointByTeyhnologies.set(key, point + experiencePoint[key]);
+//                    this.technologyUsers.set(key, this.technologyUsers.get(key)+1);
+//                }
+//            }
+//        }
+//    }
