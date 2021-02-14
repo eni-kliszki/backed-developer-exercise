@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.*;
-import java.util.concurrent.atomic.AtomicReference;
 
 @RestController
 @CrossOrigin
@@ -45,7 +44,7 @@ public class ProjectController {
         });
         List<ApplicationUser> users = userRepository.findAll();
         fillChanceToLearnByUsers(users);
-        findUserHasBiggestChanceToLearnMost(users);
+        ApplicationUser UserHasBiggestChanceToLearnMost = findUserHasBiggestChanceToLearnMost(users);
         return ResponseEntity.ok(teamProjects);
     }
 
@@ -96,7 +95,7 @@ public class ProjectController {
         }
     }
 
-    private void findUserHasBiggestChanceToLearnMost(List<ApplicationUser> users) {
+    private ApplicationUser findUserHasBiggestChanceToLearnMost(List<ApplicationUser> users) {
         ApplicationUser userHasBiggestChance = null;
         int biggestTechnologies = 0;
         int biggestPoints = 0;
@@ -113,6 +112,6 @@ public class ProjectController {
                 }
             }
         };
-        System.out.println(userHasBiggestChance);
+        return userHasBiggestChance;
     }
 }
