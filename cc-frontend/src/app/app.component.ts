@@ -15,21 +15,32 @@ import * as lod from 'lodash';
 })
 export class AppComponent implements OnDestroy {
   public dataLoaded: Promise<boolean>;
+  public fameLoaded: Promise<boolean>;
   public userGroupList;
+  public mostExperiencedTeams;
   public dataSubscription: Subscription;
+  public fameSubscription: Subscription;
 
   // DI
   constructor(@Inject(RestService) private _restService: RestService) { // inject and create variable
     this.dataSubscription = this._restService.sendGet().subscribe((data: any) => {
       this.userGroupList = data;
-      console.log(this.userGroupList);
       this.dataLoaded = Promise.resolve(true);
+    }); 
+
+    this.fameSubscription = this._restService.sendGetFame().subscribe((data: any) => {
+      this.mostExperiencedTeams = data;
+      console.log(this.mostExperiencedTeams);
+      this.fameLoaded = Promise.resolve(true);
     }); 
   }
 
   ngOnDestroy() {
     this.dataSubscription.unsubscribe();
     this.dataSubscription = null;
+
+    this.fameSubscription.unsubscribe();
+    this.fameSubscription = null;
   }
 
   notifyNewSorting(method) {
