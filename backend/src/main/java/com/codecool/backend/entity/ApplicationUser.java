@@ -4,10 +4,7 @@ import com.codecool.backend.modal.Location;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 @Data
 @NoArgsConstructor
@@ -36,4 +33,22 @@ public class ApplicationUser {
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Set<Team> teams = new HashSet<>();
+
+    @Transient
+    private Map<String, Integer> chanceToLearn = new HashMap<>();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ApplicationUser that = (ApplicationUser) o;
+        return Objects.equals(id, that.id) &&
+                Objects.equals(name, that.name) &&
+                location == that.location;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, location);
+    }
 }

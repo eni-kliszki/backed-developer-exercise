@@ -183,6 +183,16 @@ _______________________________________________________________
   Actual: 12:10-12:30
   - Fix the bug at the frontend side
 
+* 12:30 - 13:00:
+    
+  Planned:
+  - Plan experience task
+  
+  Actual:
+  - Plan a little
+  - Order some junk food
+
+
 ##Painpoints
 
 - Docker was hard to understand at first
