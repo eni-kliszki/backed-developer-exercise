@@ -12,7 +12,6 @@ import java.util.Set;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @Entity
 public class ApplicationUser {
     @Id
@@ -28,11 +27,13 @@ public class ApplicationUser {
     @ElementCollection
     @MapKeyColumn(name="technology")
     @Column(name="points")
-    @CollectionTable(name="experience_point", joinColumns=@JoinColumn(name="id"))
+    @CollectionTable(name="experience_point")
     private Map<String, Integer> experiencePoint = new HashMap<>();
 
     private String pictureURL;
 
-    @ManyToMany(mappedBy="applicationUsers")
+    @ManyToMany(mappedBy="applicationUsers", cascade = CascadeType.ALL, fetch=FetchType.LAZY)
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     private Set<Team> teams = new HashSet<>();
 }

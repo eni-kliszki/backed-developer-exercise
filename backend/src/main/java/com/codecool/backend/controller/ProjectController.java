@@ -1,10 +1,8 @@
 package com.codecool.backend.controller;
 
 import com.codecool.backend.entity.Project;
-import com.codecool.backend.entity.Team;
 import com.codecool.backend.modal.TeamProject;
 import com.codecool.backend.repository.ProjectRepository;
-import com.codecool.backend.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;

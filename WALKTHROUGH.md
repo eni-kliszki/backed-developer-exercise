@@ -150,16 +150,46 @@ _______________________________________________________________
   Planned:
   - Display the average experience points
   
+  Actual: 18:30 - 20:30
+  - Display the average experience points
+  - Pull request
+
+_______________________________________________________________
+
+* 10:00 - 11:00:
+    
+  Planned:
+  - Understand the task
+  - Complete backend
+  
+  Actual:
+  - Understand the task
+  - Found two bugs in my previous code
+
+* 11:00 - 12:00:
+    
+  Planned:
+  - Fix the bugs
+  
+  Actual:
+  - Found the bug at the backend side (lombok)
+  - Fix it
+
+* 12:00 - 13:00:
+    
+  Planned:
+  - Fix the bug at the frontend side
+  
   Actual:
   - 
-
-
 
 ##Painpoints
 
 - Docker was hard to understand at first
 - Understand skeleton code
 - IntelliJ kills my laptop ten times a day
+- Lombok
 
 ##Worth to note
+- Shouldn't use lombok (builder)
 
