@@ -8,14 +8,14 @@ import { Component, OnInit, Input} from '@angular/core';
 
 export class FameComponent implements OnInit {
   @Input() fameData: any;
-  public team = [];  
+  public team;  
   public avatarList = [];  
 
   constructor() {    
   }
 
-  ngOnInit() {    
-    console.log(this.fameData);
+  ngOnInit() {  
+    this.team = this.fameData; 
     this.avatarList = this.fameData.usersUrl;
   }
 

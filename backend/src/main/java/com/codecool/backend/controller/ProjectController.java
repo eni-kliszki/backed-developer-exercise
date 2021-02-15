@@ -3,9 +3,8 @@ package com.codecool.backend.controller;
 import com.codecool.backend.entity.ApplicationUser;
 import com.codecool.backend.entity.Project;
 import com.codecool.backend.entity.Team;
-import com.codecool.backend.modal.TeamProject;
-import com.codecool.backend.modal.TeamWithUsers;
-import com.codecool.backend.modal.UserModel;
+import com.codecool.backend.model.TeamProject;
+import com.codecool.backend.model.TeamWithUsers;
 import com.codecool.backend.repository.ProjectRepository;
 import com.codecool.backend.repository.TeamRepository;
 import com.codecool.backend.repository.UserRepository;
@@ -49,7 +48,6 @@ public class ProjectController {
 
             teamProjects.add(teamProject);
         });
-        System.out.println(find3MostExperiencedTeams());
         return ResponseEntity.ok(teamProjects);
     }
 

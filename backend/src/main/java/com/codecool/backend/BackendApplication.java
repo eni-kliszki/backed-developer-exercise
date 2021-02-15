@@ -3,7 +3,7 @@ package com.codecool.backend;
 import com.codecool.backend.entity.ApplicationUser;
 import com.codecool.backend.entity.Project;
 import com.codecool.backend.entity.Team;
-import com.codecool.backend.modal.Location;
+import com.codecool.backend.model.Location;
 import com.codecool.backend.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -38,6 +38,12 @@ public class BackendApplication {
                 adi.setLocation(Location.BUDAPEST);
                 adi.setExperiencePoint(Map.of("JavaScript",100, "Java", 80, "TypeScript", 30));
                 adi.setPictureURL("https://cc-journey-student-profile-images.s3.amazonaws.com/1f42627e-a65d-496c-abde-c82c109f410a");
+
+                ApplicationUser ize = ApplicationUser.builder()
+                        .name("Izé")
+                        .chanceToLearn(new HashMap<>())
+                        .build();
+            System.out.println(ize);
 
             ApplicationUser fazi = new ApplicationUser();
                 fazi.setName("Fazi");

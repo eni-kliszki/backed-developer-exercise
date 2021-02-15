@@ -1,7 +1,7 @@
 package com.codecool.backend.repository;
 
 import com.codecool.backend.entity.ApplicationUser;
-import com.codecool.backend.modal.Location;
+import com.codecool.backend.model.Location;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -7,9 +7,10 @@
       <span>{{ userGroup.title }}</span>
       <span>{{ userGroup.url }}</span>
     </cc-card>  
-  </div>
-  <div class="hall-of-fame-container">
-    <cc-fame-card *ngFor="let team of mostExperiencedTeams" [fameData]="team">
-    </cc-fame-card>  
+    <h2>Hall of fame</h2>
+    <div class="hall-of-fame-container">
+      <cc-fame-card *ngFor="let team of mostExperiencedTeams" [fameData]="team">
+      </cc-fame-card>  
+    </div>
   </div>
 </main>
