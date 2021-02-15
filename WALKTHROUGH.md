@@ -156,6 +156,9 @@ _______________________________________________________________
 
 _______________________________________________________________
 
+14.02.:
+
+
 * 10:00 - 11:00:
     
   Planned:
@@ -209,6 +212,27 @@ _______________________________________________________________
   Actual:
   - create Hall of fame component with basic style
 
+_______________________________________________________________
+
+15.02.:
+
+* 09:00 - 10:00:
+    
+  Planned:
+  - Visualize hall-of-fame component in a better way
+  
+  Actual:
+  - Present my code to my teammate
+
+* 10:00 - 11:00:
+    
+  Planned:
+  - Refactor
+  
+  Actual:
+  - 
+
+
 
 ##Painpoints
 
@@ -218,5 +242,3 @@ _______________________________________________________________
 - Lombok
 
 ##Worth to note
-- Shouldn't use lombok (builder)
-
