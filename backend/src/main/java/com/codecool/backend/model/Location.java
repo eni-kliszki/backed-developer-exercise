@@ -1,4 +1,4 @@
-package com.codecool.backend.modal;
+package com.codecool.backend.model;
 
 public enum Location {
     BUDAPEST,

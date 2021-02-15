@@ -11,7 +11,6 @@ export class CardComponent implements OnInit {
   public avatarList = [];  
   
   public experiencePoints;
-  public users : number;
 
   public averageExperiencePointByTeyhnologies = new Map<String, number>();
   public technologyUsers = new Map<String, number>();
@@ -45,7 +44,6 @@ export class CardComponent implements OnInit {
   ngOnInit() {    
     this.avatarList = this.groupData.teamAvatarUrls;
     this.experiencePoints = this.groupData.usersExperiencePoints;
-    this.users = this.experiencePoints.length;
     this.fillExperiencePointByTeyhnologies();
   }
 

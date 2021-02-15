@@ -1,7 +1,7 @@
 package com.codecool.backend.repository;
 
 import com.codecool.backend.entity.ApplicationUser;
-import com.codecool.backend.modal.Location;
+import com.codecool.backend.model.Location;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

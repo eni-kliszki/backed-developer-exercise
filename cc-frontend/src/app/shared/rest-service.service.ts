@@ -13,4 +13,10 @@ export class RestService {
 
     return this._http.get(BASE_URL);
   }
+
+  public sendGetFame() {
+    const BASE_URL = 'http://localhost:8080/fame';
+
+    return this._http.get(BASE_URL);
+  }
 }

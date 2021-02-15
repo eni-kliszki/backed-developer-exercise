@@ -10,7 +10,7 @@ import java.util.*;
 @AllArgsConstructor
 @Builder
 @Entity
-public class Team {
+public class Team implements Comparable<Team> {
     @Id
     @GeneratedValue
     private Long id;
@@ -33,4 +33,11 @@ public class Team {
     @ToString.Exclude
     private Set<Project> projects;
 
+    @Transient
+    private Integer averageExperiencePoint;
+
+    @Override
+    public int compareTo(Team team) {
+        return this.getAverageExperiencePoint().compareTo(team.getAverageExperiencePoint());
+    }
 }

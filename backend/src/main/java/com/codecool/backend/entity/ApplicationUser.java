@@ -1,6 +1,6 @@
 package com.codecool.backend.entity;
 
-import com.codecool.backend.modal.Location;
+import com.codecool.backend.model.Location;
 import lombok.*;
 
 import javax.persistence.*;
@@ -10,6 +10,7 @@ import java.util.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Builder
 public class ApplicationUser {
     @Id
     @GeneratedValue
