@@ -8,6 +8,7 @@ import { CardComponent } from './card/card.component';
 import { TruncatePipe } from './shared/truncate.pipe';
 import { SortModalComponent } from './sort-modal/sort-modal.component';
 import { FameComponent } from './fame/fame.component';
+import { UserToLearnComponent } from './userToLearn/userToLearn.component';
 
 @NgModule({
   declarations: [ //register components
@@ -15,10 +16,11 @@ import { FameComponent } from './fame/fame.component';
     CardComponent,
     TruncatePipe,    
     SortModalComponent,
-    FameComponent
+    FameComponent,
+    // UserToLearnComponent
   ],
   imports: [
-  BrowserModule,
+BrowserModule,
     HttpClientModule
   ],
   providers: [ // register all the dependencies in this module

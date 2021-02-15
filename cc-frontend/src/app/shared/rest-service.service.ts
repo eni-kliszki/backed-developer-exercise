@@ -19,4 +19,10 @@ export class RestService {
 
     return this._http.get(BASE_URL);
   }
+
+  public sendGetUser() {
+    const BASE_URL = 'http://localhost:8080/user';
+
+    return this._http.get(BASE_URL);
+  }
 }
