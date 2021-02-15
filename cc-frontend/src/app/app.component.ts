@@ -16,10 +16,13 @@ import * as lod from 'lodash';
 export class AppComponent implements OnDestroy {
   public dataLoaded: Promise<boolean>;
   public fameLoaded: Promise<boolean>;
+  public userLoaded: Promise<boolean>;
   public userGroupList;
   public mostExperiencedTeams;
+  public userToLearn = {name: null, location: null, pictureURL: null};
   public dataSubscription: Subscription;
   public fameSubscription: Subscription;
+  public userSubscription: Subscription;
 
   // DI
   constructor(@Inject(RestService) private _restService: RestService) { // inject and create variable
@@ -30,8 +33,13 @@ export class AppComponent implements OnDestroy {
 
     this.fameSubscription = this._restService.sendGetFame().subscribe((data: any) => {
       this.mostExperiencedTeams = data;
-      console.log(this.mostExperiencedTeams);
       this.fameLoaded = Promise.resolve(true);
+    }); 
+
+    this.userSubscription = this._restService.sendGetUser().subscribe((data: any) => {
+      this.userToLearn = data;
+      console.log(this.userToLearn)
+      this.userLoaded = Promise.resolve(true);
     }); 
   }
 
@@ -41,6 +49,9 @@ export class AppComponent implements OnDestroy {
 
     this.fameSubscription.unsubscribe();
     this.fameSubscription = null;
+
+    this.userSubscription.unsubscribe();
+    this.userSubscription = null;
   }
 
   notifyNewSorting(method) {
