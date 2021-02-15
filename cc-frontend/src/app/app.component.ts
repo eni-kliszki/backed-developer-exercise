@@ -30,6 +30,7 @@ export class AppComponent implements OnDestroy {
 
     this.fameSubscription = this._restService.sendGetFame().subscribe((data: any) => {
       this.mostExperiencedTeams = data;
+      console.log(this.mostExperiencedTeams)
       this.fameLoaded = Promise.resolve(true);
     }); 
   }

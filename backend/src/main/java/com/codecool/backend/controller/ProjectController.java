@@ -1,7 +1,7 @@
 package com.codecool.backend.controller;
 
 import com.codecool.backend.entity.Project;
-import com.codecool.backend.model.ProjectModel;
+import com.codecool.backend.service.ProjectService;
 import com.codecool.backend.model.TeamProject;
 import com.codecool.backend.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,14 +20,14 @@ public class ProjectController {
     private ProjectRepository projectRepository;
 
     @Autowired
-    private ProjectModel projectModel;
+    private ProjectService projectService;
 
     @GetMapping("/data")
     public ResponseEntity<Set<TeamProject>> getAll() {
         List<Project> projects = projectRepository.findAll();
         Set<TeamProject> teamProjects = new HashSet<>();
 
-        projectModel.createTeamProjects(projects, teamProjects);
+        projectService.createTeamProjects(projects, teamProjects);
 
         return ResponseEntity.ok(teamProjects);
     }

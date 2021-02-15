@@ -1,13 +1,14 @@
-package com.codecool.backend.model;
+package com.codecool.backend.service;
 
 import com.codecool.backend.entity.Project;
+import com.codecool.backend.model.TeamProject;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Set;
 
 @Service
-public class ProjectModel {
+public class ProjectService {
 
     public void createTeamProjects(List<Project> projects, Set<TeamProject> teamProjects) {
         projects.stream().forEach(project -> {
