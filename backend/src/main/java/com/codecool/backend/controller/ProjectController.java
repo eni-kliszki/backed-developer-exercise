@@ -1,6 +1,7 @@
 package com.codecool.backend.controller;
 
 import com.codecool.backend.entity.Project;
+import com.codecool.backend.service.ChanceToLearn;
 import com.codecool.backend.service.ProjectService;
 import com.codecool.backend.model.TeamProject;
 import com.codecool.backend.repository.ProjectRepository;
@@ -28,7 +29,6 @@ public class ProjectController {
         Set<TeamProject> teamProjects = new HashSet<>();
 
         projectService.createTeamProjects(projects, teamProjects);
-
         return ResponseEntity.ok(teamProjects);
     }
 

@@ -1,6 +1,9 @@
 package com.codecool.backend.service;
 
 import com.codecool.backend.entity.ApplicationUser;
+import com.codecool.backend.model.UserModel;
+import com.codecool.backend.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -8,71 +11,65 @@ import java.util.*;
 @Service
 public class ChanceToLearn {
 
-    private Map<ApplicationUser, Set<ApplicationUser>> findMates(List<ApplicationUser> users) {
-        Map<ApplicationUser, Set<ApplicationUser>> userMates = new HashMap<>();
+    @Autowired
+    private UserRepository userRepository;
 
+    public void fillUsersChanceToLearnFromMates(List<ApplicationUser> users) {
         users.stream().forEach(user -> {
-            Set<ApplicationUser> mates = new HashSet<>();
             user.getTeams().stream().forEach(team -> {
                 team.getApplicationUsers().stream().forEach(mate -> {
+                    Set<ApplicationUser> userMates = new HashSet<>();
+
                     if (!user.equals(mate)) {
-                        mates.add(mate);
+                        if(userMates.add(mate)){
+                            fillUserChanceToLearnFromMates(mate, user);
+                        }
                     }
                 });
             });
-            userMates.put(user, mates);
         });
-        return userMates;
     }
 
-    private void fillChanceToLearnByUsers(List<ApplicationUser> users) {
-        Map<ApplicationUser, Set<ApplicationUser>> userMates = findMates(users);
-        for (Map.Entry<ApplicationUser, Set<ApplicationUser>> userMatesEntry : userMates.entrySet()) {
-            ApplicationUser user = userMatesEntry.getKey();
-            userMatesEntry.getValue().stream().forEach(mate -> {
-                for (Map.Entry<String, Integer> experience : mate.getExperiencePoint().entrySet()) {
-                    String technology = experience.getKey();
-                    int mateExperiencePoint = experience.getValue();
-                    if(user.getExperiencePoint().containsKey(technology)){
-                        if(mateExperiencePoint > user.getExperiencePoint().get(technology)){
-                            int diff = mateExperiencePoint - user.getExperiencePoint().get(technology);
-                            if(!user.getChanceToLearn().containsKey(technology)){
-                                user.getChanceToLearn().put(technology, diff);
-                            }else{
-                                user.getChanceToLearn().put(technology, user.getChanceToLearn().get(technology) + diff);
-                            }
-                        }
+    private void fillUserChanceToLearnFromMates(ApplicationUser mate, ApplicationUser user) {
+        for (Map.Entry<String, Integer> experience : mate.getExperiencePoint().entrySet()) {
+            String technology = experience.getKey();
+            int mateExperiencePoint = experience.getValue();
+            if(user.getExperiencePoint().containsKey(technology)){
+                if(mateExperiencePoint > user.getExperiencePoint().get(technology)){
+                    int diff = mateExperiencePoint - user.getExperiencePoint().get(technology);
+                    if(!user.getChanceToLearn().containsKey(technology)){
+                        user.getChanceToLearn().put(technology, diff);
                     }else{
-                        if(!user.getChanceToLearn().containsKey(experience.getKey())){
-                            user.getChanceToLearn().put(technology, mateExperiencePoint);
-                        }else{
-                            user.getChanceToLearn().put(technology, user.getChanceToLearn().get(technology) + mateExperiencePoint);
-                        }
+                        user.getChanceToLearn().put(technology, user.getChanceToLearn().get(technology) + diff);
                     }
-
                 }
-            });
+            }else{
+                if(!user.getChanceToLearn().containsKey(experience.getKey())){
+                    user.getChanceToLearn().put(technology, mateExperiencePoint);
+                }else{
+                    user.getChanceToLearn().put(technology, user.getChanceToLearn().get(technology) + mateExperiencePoint);
+                }
+            }
         }
     }
 
     public ApplicationUser findUserHasBiggestChanceToLearnMost(List<ApplicationUser> users) {
-        fillChanceToLearnByUsers(users);
         ApplicationUser userHasBiggestChance = null;
         int biggestTechnologies = 0;
         int biggestPoints = 0;
-        for (ApplicationUser user : users) {
-            int technologies = user.getChanceToLearn().size();
+        for (ApplicationUser applicationUser : users) {
+            int technologies = applicationUser.getChanceToLearn().size();
             if(technologies > biggestTechnologies) {
                 int points = 0;
-                for (Map.Entry<String, Integer> chance : user.getChanceToLearn().entrySet()) {
+                for (Map.Entry<String, Integer> chance : applicationUser.getChanceToLearn().entrySet()) {
                     points += chance.getValue();
                     technologies++;
                 }
                 if (points > biggestPoints) {
-                    userHasBiggestChance = user;
+                    userHasBiggestChance = applicationUser;
                 }
             }
-        };
+        }
         return userHasBiggestChance;
     }
 }

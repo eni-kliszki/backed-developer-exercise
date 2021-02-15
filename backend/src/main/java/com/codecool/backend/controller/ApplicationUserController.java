@@ -1,6 +1,7 @@
 package com.codecool.backend.controller;
 
 import com.codecool.backend.entity.ApplicationUser;
+import com.codecool.backend.model.UserModel;
 import com.codecool.backend.repository.UserRepository;
 import com.codecool.backend.service.ChanceToLearn;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +23,11 @@ public class ApplicationUserController {
     private ChanceToLearn chanceToLearn;
 
     @GetMapping("/user")
-    public ResponseEntity<ApplicationUser> getTheBest() {
+    public ResponseEntity<UserModel> getTheBest() {
         List<ApplicationUser> users = userRepository.findAll();
-
-        return ResponseEntity.ok(chanceToLearn.findUserHasBiggestChanceToLearnMost(users));
+        chanceToLearn.fillUsersChanceToLearnFromMates(users);
+        ApplicationUser user = chanceToLearn.findUserHasBiggestChanceToLearnMost(users);
+        UserModel userModel = new UserModel(user.getName(), user.getLocation(), user.getPictureURL());
+        return ResponseEntity.ok(userModel);
     }
 }
