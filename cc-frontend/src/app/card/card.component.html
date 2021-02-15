@@ -5,6 +5,11 @@
             <img [src]="avatar" alt="" [ngClass]="i === 4 ? 'img-darker' : ''">
             <span *ngIf="i === 4">+2</span>
         </div>
+        <div class="cc-card-points">
+            <div *ngFor="let item of averageExperiencePointByTeyhnologies | keyvalue">
+                <div>{{item.key}} : {{item.value}}</div>
+            </div>
+        </div>
     </div>
     <div class="cc-card-actions-container">
         <span class="cc-card-button">Join</span>

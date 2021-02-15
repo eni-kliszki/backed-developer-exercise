@@ -7,20 +7,24 @@ import { HttpClientModule } from '@angular/common/http';
 import { CardComponent } from './card/card.component';
 import { TruncatePipe } from './shared/truncate.pipe';
 import { SortModalComponent } from './sort-modal/sort-modal.component';
+import { FameComponent } from './fame/fame.component';
+import { UserToLearnComponent } from './userToLearn/userToLearn.component';
 
 @NgModule({
-  declarations: [
+  declarations: [ //register components
     AppComponent,
     CardComponent,
     TruncatePipe,    
-    SortModalComponent
+    SortModalComponent,
+    FameComponent,
+    // UserToLearnComponent
   ],
   imports: [
-    BrowserModule,
+BrowserModule,
     HttpClientModule
   ],
-  providers: [
-    RestService
+  providers: [ // register all the dependencies in this module
+    RestService //single instance - singleton
   ],
   bootstrap: [AppComponent]
 })
